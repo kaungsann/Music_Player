@@ -1,0 +1,455 @@
+body{
+    background-color: #2E424D;
+    color: white;
+    margin: 0;
+    padding: 0;
+ 
+ }
+ body::-webkit-scrollbar{
+     display: none;
+ }
+ 
+ .menuicons{
+     display: none;
+ }
+ .searchsec{
+     display: none;
+ }
+ .inputcotainer{
+     position: absolute;
+     right: 0;
+     top: 0;
+     width: 100vw;
+     height: 100%;
+     background-color: #2E424D;
+     z-index: 1;
+     padding: 5px;
+
+ }
+ .input{
+      border-bottom-left-radius: 0px;
+      border-bottom-right-radius: 0px;
+      background-color: #2E424D;
+      border:1px solid lightseagreen;
+      width: 100%;
+      transition: all 0.4s ease-in-out;
+
+ }
+ .fa-solid{
+     font-size: 35px; 
+ }
+ 
+ 
+ 
+ .addcontainer{
+     border-top-left-radius: 0px;
+     border-top-right-radius: 0px;
+     box-shadow: rgba(0, 0, 0, 0.15) 0px 7px 9px;
+     background-color: whitesmoke;
+     border-top-left-radius: 0px;
+     border-top-right-radius: 0px;
+     width: 100%;
+     overflow-y: scroll;
+
+    
+ }
+ h6{
+     margin-bottom: 10px;
+     margin-top: 8px;
+     color: whitesmoke;
+     margin-left: 16px;
+ }
+ .songsandtitle{
+     padding: 5px;
+     display: flex;
+     width: 80%;
+     margin: 0 auto;
+     flex-direction: row;
+     justify-content: center;
+     align-items: center;
+     border-bottom: 1px solid black;
+     cursor: pointer;
+     user-select: none;
+     color: black;
+   
+     overflow-y: scroll;
+     scrollbar-width: none;
+     -ms-overflow-style: none;
+  
+ }
+ .songsandtitle:hover{
+      background-color: blue;
+      color:white;
+ }
+ .title{
+     width: 70%;
+     margin-right: 10px;
+     font-size: 15px;
+     margin-bottom: 5px;
+ 
+ }
+ .songimg{
+       width: 13%;
+       height: 50px;
+      
+      border-radius: 15px;
+ }
+ .musicContainer{
+     
+     z-index: -1;
+     width: 60%;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     margin: 0 auto;
+     margin-top: 120px;
+ }
+ .musicIcons{
+     display: flex;
+     flex-direction: row;
+     justify-content: space-between;
+     align-items: center;
+     margin-top: 30px;
+     width: 25%;
+ }
+ .icons{
+ 
+     border-radius: 30px;
+     
+     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+ }
+ .icons:hover{
+      opacity: 0.8;
+ }
+ .timercontainer{
+     font-size: large;
+     padding: 10px;
+ }
+ 
+ .songsAndTitle{
+     width: 100%;
+ }
+ 
+ .progressive{
+     width: 400px;
+     height: 5px;
+     background-color: darkgray;
+     
+ }
+ .progressivebar{
+     width: 0px;
+     background-color: red;
+     height: 100%;
+ }
+ .pauseButton{
+     display: none;
+ }
+ 
+ .imgcontainer{
+     border: none;
+     width: 350px;
+     height: 300px;
+ }
+ .addimages , .boxsong {
+     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+     border-radius: 10%;
+     width: 100%;
+     height: 100%;
+ }
+ .playbutton , .pauseButton{
+     font-size: 55px;
+ }
+ .inputbox{
+     width: 90%;
+     margin: 0 auto;
+     position: relative;
+  
+    
+ }
+ .search{
+     font-size: 25px;
+     background-color: #343a40;
+     width: 40px;
+     padding: 7px;
+     position: absolute;
+     right: 5px;
+     border-radius: 8px;
+     color: lightblue;
+ }
+ .search:hover{
+     color: lightseagreen;
+ }
+
+ .search{
+     transition: all 0.4s ease-in-out;
+ }
+ .songstitlediv{
+     color: white;
+     padding: 11px;
+     border-bottom: 1px solid gray;
+     user-select: none;
+     cursor: pointer;
+ }
+ .songstitlediv:hover{
+     opacity: 0.7;
+ }
+ .songscontainer{
+     margin-top: 10px;
+     position: absolute;
+     background-color:#244D61;
+     width: 100vw;
+     height: 68%;
+     z-index: 2;
+     transition: all 1s ease-in-out ;
+     overflow-y: scroll;
+     scrollbar-width: none;
+     -ms-overflow-style: none;
+     display: none;
+ }
+ .songscontainer::-webkit-scrollbar{
+     display: none;
+ }
+ .fa-youtube{
+     color:rgb(133, 36, 7);
+     font-size: 45px;
+ }
+ .maincontainer{
+   
+     position: relative;
+ }
+ 
+ 
+ .itemscontainer{
+ 
+     display: flex;
+     background-color: #2E424D;
+     flex-direction: row;
+     justify-content: space-between;
+     align-items: center;
+     padding: 13px;
+ }
+ .maincontainer{
+    position: relative;
+ }
+ .head{
+   
+     font-size:30px;
+     font-style: italic;
+     letter-spacing: 3px;
+     font-weight: 600;
+     color:#2E424D;
+     -webkit-text-stroke: 1px #2E424D;
+     position: relative;
+   
+ }
+ .head::before{
+     content: attr(data-text);
+     position: absolute;
+     font-weight: 600;
+     top: 0;
+     width: 100%;
+     height: 90%;
+     left: 0;
+     color: lightseagreen;
+     border-right: 1px solid rgb(34, 134, 34);
+     overflow: hidden;
+     animation: animate 7s linear infinite;
+ 
+ }
+ @keyframes animate {
+     0% , 10% ,100%{
+         width: 0%;
+     }
+     70% , 90% {
+        width: 100%;
+    }
+ }
+ .menuitems{
+ 
+     
+ }
+ .menuicons{
+     font-size: 28px;
+     user-select: none;
+     cursor: pointer;
+  
+
+  
+ }
+ @media (max-width:600px){
+     .itemscontainer{
+         display: flex;
+         flex-direction: row; 
+         justify-content: space-between;
+         padding: 5px;
+      
+     }
+     .songscontainer{
+         display: block;
+    
+     }
+     .menuicons:hover{
+         opacity: 0.4;
+     }
+     .searchsec{
+         font-size: 25px;
+         color: lightblue;
+         user-select: none;
+         cursor: pointer;
+         display: block;
+         margin-right: 9px;
+     }
+     
+     .head{
+   
+        font-size:20px;
+        font-style: italic;
+        letter-spacing: 3px;
+        font-weight: bolder;
+        color:#2E424D;
+        -webkit-text-stroke: 1px #2E424D;
+        position: relative;
+      
+    }
+    .head::before{
+        content: attr(data-text);
+        position: absolute;
+        font-weight: bolder;
+        top: 0;
+        width: 100%;
+        height: 90%;
+        left: 0;
+        color: lightseagreen;
+        border-right: 1px solid rgb(34, 134, 34);
+        overflow: hidden;
+        animation: animate 7s linear infinite;
+    
+    }
+     .menuicons{
+         display: block;
+         font-size: 25px;
+         user-select: none;
+         cursor: pointer;
+        margin-left: 10px;
+      
+     }
+     .imgcontainer{
+         border: none;
+         width: 250px;
+         height: 250px;
+     }
+     .musicContainer{
+         
+         z-index: -1;
+         width: 60%;
+         display: flex;
+         flex-direction: column;
+         justify-content: center;
+         align-items: center;
+         margin: 0px auto;
+         margin-top: 150px;
+     }
+     .timercontainer{
+         font-size: 18px;
+         padding: 5px;
+         margin-top: 30px;
+     }
+     .progressive{
+         width: 250px;
+         height: 5px;
+         background-color: darkgray;
+         
+     }
+     .playbutton , .pauseButton{
+         font-size: 45px;
+     }
+     .icons{
+         font-size: 25px;
+     }
+     .musicIcons{
+         display: flex;
+         flex-direction: row;
+         justify-content: space-between;
+         align-items: center;
+         margin-top: 20px;
+         width: 80%;
+     }
+     .search{
+         font-size: 25px;
+         background-color: #343a40;
+         width: 35px;
+         padding: 5px;
+         position: absolute;
+         right: 10px;
+         border-radius: 8px;
+         color: lightblue;
+     }
+     .search:hover{
+         color: lightseagreen;
+     }
+     .addcontainer{
+         
+         width: 100%;
+         
+     }
+ 
+     .songsandtitle{
+         padding: 3px;
+         width: 95%;
+     }
+     .title{
+         width: 90%;
+         margin-right: 6px;
+         font-size: 12px;
+         margin-bottom: 3px;
+     
+     }
+     .songimg{
+           width: 15%;
+           height: 40px;
+          border-radius: 10px;
+     }
+     .inputcotainer{
+         position: absolute;
+         top: 0;
+         right: 0;
+         width: 100vw;
+         height: 100%;
+         background-color: #244D61;
+         z-index: 1;
+         padding: 5px;
+ 
+ 
+     }
+     .songstitlediv{
+         display: flex;
+         justify-content: space-between;
+
+     }
+     .titlesmall{
+         font-size: 15px;
+         width: 60%;
+     }
+     .smallimg{
+         width: 25%;
+         height: 45px;
+         border-radius: 8px;
+     }
+     .cross{
+         margin-right: 8px;
+     }
+     .titleandfalse{
+         display: flex;
+         justify-content: space-between;
+         padding: 7px;
+         margin-bottom: 7px;
+     }
+     .songsandtitle:hover{
+        background-color: blue;
+        color:white;
+    }
+    .appearinput{
+         transition: all 1s ease-in-out;
+    }
+    }
