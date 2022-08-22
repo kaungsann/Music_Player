@@ -9,9 +9,7 @@ body{
      display: none;
  }
  
- .menuicons{
-     display: none;
- }
+
  .searchsec{
      display: none;
  }
@@ -19,12 +17,12 @@ body{
      position: absolute;
      right: 0;
      top: 0;
-     width: 100vw;
+     width: 100%;
      height: 100%;
      background-color: #2E424D;
-     z-index: 1;
+     z-index: 3;
      padding: 5px;
-
+     overflow-y: auto;
  }
  .input{
       border-bottom-left-radius: 0px;
@@ -33,14 +31,11 @@ body{
       border:1px solid lightseagreen;
       width: 100%;
       transition: all 0.4s ease-in-out;
-
  }
  .fa-solid{
      font-size: 35px; 
  }
- 
- 
- 
+
  .addcontainer{
      border-top-left-radius: 0px;
      border-top-right-radius: 0px;
@@ -60,18 +55,16 @@ body{
      margin-left: 16px;
  }
  .songsandtitle{
-     padding: 5px;
      display: flex;
-     width: 80%;
+     width: 100%;
      margin: 0 auto;
      flex-direction: row;
-     justify-content: center;
+     justify-content: space-between;
      align-items: center;
      border-bottom: 1px solid black;
      cursor: pointer;
      user-select: none;
      color: black;
-   
      overflow-y: scroll;
      scrollbar-width: none;
      -ms-overflow-style: none;
@@ -82,20 +75,18 @@ body{
       color:white;
  }
  .title{
-     width: 70%;
-     margin-right: 10px;
+     width: 65%;
      font-size: 15px;
      margin-bottom: 5px;
- 
+     margin-left: 15px;
  }
  .songimg{
        width: 13%;
        height: 50px;
-      
       border-radius: 15px;
+      margin-right: 15px;
  }
  .musicContainer{
-     
      z-index: -1;
      width: 60%;
      display: flex;
@@ -221,13 +212,12 @@ body{
  
  
  .itemscontainer{
- 
      display: flex;
      background-color: #2E424D;
      flex-direction: row;
      justify-content: space-between;
      align-items: center;
-     padding: 13px;
+     padding-top: 20px;
  }
  .maincontainer{
     position: relative;
@@ -265,29 +255,18 @@ body{
         width: 100%;
     }
  }
- .menuitems{
- 
-     
- }
  .menuicons{
      font-size: 28px;
      user-select: none;
      cursor: pointer;
-  
-
-  
+     display: none;
  }
  @media (max-width:600px){
      .itemscontainer{
-         display: flex;
-         flex-direction: row; 
-         justify-content: space-between;
-         padding: 5px;
-      
+         padding: 10px;
      }
      .songscontainer{
          display: block;
-    
      }
      .menuicons:hover{
          opacity: 0.4;
@@ -302,30 +281,10 @@ body{
      }
      
      .head{
-   
         font-size:20px;
-        font-style: italic;
         letter-spacing: 3px;
-        font-weight: bolder;
-        color:#2E424D;
-        -webkit-text-stroke: 1px #2E424D;
-        position: relative;
-      
     }
-    .head::before{
-        content: attr(data-text);
-        position: absolute;
-        font-weight: bolder;
-        top: 0;
-        width: 100%;
-        height: 90%;
-        left: 0;
-        color: lightseagreen;
-        border-right: 1px solid rgb(34, 134, 34);
-        overflow: hidden;
-        animation: animate 7s linear infinite;
-    
-    }
+
      .menuicons{
          display: block;
          font-size: 25px;
@@ -335,19 +294,10 @@ body{
       
      }
      .imgcontainer{
-         border: none;
          width: 250px;
          height: 250px;
      }
      .musicContainer{
-         
-         z-index: -1;
-         width: 60%;
-         display: flex;
-         flex-direction: column;
-         justify-content: center;
-         align-items: center;
-         margin: 0px auto;
          margin-top: 150px;
      }
      .timercontainer{
@@ -358,8 +308,6 @@ body{
      .progressive{
          width: 250px;
          height: 5px;
-         background-color: darkgray;
-         
      }
      .playbutton , .pauseButton{
          font-size: 45px;
@@ -368,35 +316,20 @@ body{
          font-size: 25px;
      }
      .musicIcons{
-         display: flex;
-         flex-direction: row;
-         justify-content: space-between;
-         align-items: center;
          margin-top: 20px;
-         width: 80%;
+         width: 75%;
      }
      .search{
-         font-size: 25px;
-         background-color: #343a40;
          width: 35px;
          padding: 5px;
-         position: absolute;
          right: 10px;
-         border-radius: 8px;
-         color: lightblue;
      }
      .search:hover{
          color: lightseagreen;
      }
-     .addcontainer{
-         
-         width: 100%;
-         
-     }
- 
      .songsandtitle{
          padding: 3px;
-         width: 95%;
+         width: 100%;
      }
      .title{
          width: 90%;
@@ -410,18 +343,7 @@ body{
            height: 40px;
           border-radius: 10px;
      }
-     .inputcotainer{
-         position: absolute;
-         top: 0;
-         right: 0;
-         width: 100vw;
-         height: 100%;
-         background-color: #244D61;
-         z-index: 1;
-         padding: 5px;
- 
- 
-     }
+
      .songstitlediv{
          display: flex;
          justify-content: space-between;
@@ -451,5 +373,8 @@ body{
     }
     .appearinput{
          transition: all 1s ease-in-out;
+    }
+    .newcss{
+        transition: all 1s ease-in-out;
     }
     }

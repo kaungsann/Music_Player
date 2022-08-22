@@ -58,17 +58,13 @@ const songs = [
 
 ]
 
-
 inputTag.addEventListener("keyup" , (event) => {
          console.log(event.key)
-
-
         addcontainerTag.innerHTML = "";
         let inputValue = event.target.value.toLowerCase();
         if(inputValue === ""){
             return;
         }
-    
         filterSongs = songs.filter(song => {
           return  song.songtitle.toLowerCase().includes(inputValue);
         }) // [2]
@@ -85,9 +81,6 @@ inputTag.addEventListener("keyup" , (event) => {
                 const songImg = document.createElement("img");
                 songImg.classList.add("songimg");
                 songImg.src = filterSongs[i].songsImg;
-              
-               
-             
                 songsAndTitle.append(newdiv , songImg );
              
                 songsAndTitle.classList.add("songsAndTitle");
@@ -112,8 +105,6 @@ inputTag.addEventListener("keyup" , (event) => {
              }
           
         }
-
-       
 })
 
 let durationText;
@@ -162,17 +153,13 @@ const changeButton = () => {
      }
 }
 
-
-playbuttonTag.addEventListener("click" , () => {gi
-
+playbuttonTag.addEventListener("click" , () => {
      if(songs[0]){
           changeImg();
-    
      }
      if(inputValue = ""){
           return;
      }
-     
      const currentTime = Math.floor(audiioTag.currentTime);
      isPlaying = true;
      if(currentTime === 0){
@@ -181,10 +168,7 @@ playbuttonTag.addEventListener("click" , () => {gi
           audiioTag.play();
           changeButton();
      }
-
-
 })
-
 
 pauseButtonTag.addEventListener("click" , () => {
 
@@ -208,8 +192,6 @@ backbuttonTag.addEventListener("click" , () => {
 
   
 });
-
-
 
 forwardbuttonTag.addEventListener("click" , () => {
      isPlaying = true;
@@ -284,50 +266,29 @@ menuiconsTag.addEventListener("click" , () => {
    if(songscontainerTag.classList.contains("leftmenu")){
          songscontainerTag.classList.remove("leftmenu");
          songscontainerTag.style.left = `-${songscontainerTag.offsetWidth}px`;
-
- }else{
-      
+   }else{ 
       songscontainerTag.style.left = `0px`;
-     songscontainerTag.classList.add("leftmenu");
-       
+      songscontainerTag.classList.add("leftmenu");    
     }
  
    
 })
 
-
 inputcotainerTag.style.top = `-${inputcotainerTag.offsetHeight}px`;
 
 searchsecTag.addEventListener("click" , () => {
-
-      if(inputcotainerTag.classList.contains("appearinput")){
-          inputcotainerTag.classList.remove("appearinput");
-          inputcotainerTag.style.top = `-${inputcotainerTag.offsetHeight}px`;
-      }else{
+     songscontainerTag.style.left = `-${songscontainerTag.offsetWidth}px`;
+      if(inputcotainerTag.classList.contains("appearinput")){ 
+          inputcotainerTag.classList.remove("appearinput");    
+          inputcotainerTag.style.top = `-${inputcotainerTag.offsetHeight}px`; 
+     }else{
           inputcotainerTag.classList.add("appearinput");
-             inputcotainerTag.style.top = `0px`;
-          
+          inputcotainerTag.style.top = `0px`;
       }
   });
 
-  const alertBox = () => {
-     const alertContainerTag = document.createElement("div");
-     alertContainerTag.classList.add("alertcontainer ")
-
-     const buttonTag = document.createElement("button");
-     buttonTag.classList.add("btn" , "btn-primary");
-     buttonTag.append("OK");
-
-     const alertTag2 = document.createElement("div");
-
-     alertTag2.classList.add("alerttext")
-
-     alertTag2.append("you only search in menu songs");
-     
-     alertContainerTag.append(alertTag2 ,buttonTag )
-     inputcotainerTag.append(alertContainerTag);
-  }
-
   crossTag.addEventListener("click" , () => {
      inputcotainerTag.style.top = `-${inputcotainerTag.offsetHeight}px`;
-  })
+     inputcotainerTag.classList.add("newcss")
+     inputcotainerTag.classList.remove("appearinput"); 
+  });
