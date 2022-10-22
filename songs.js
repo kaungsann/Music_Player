@@ -14,27 +14,28 @@ const searchsecTag = document.getElementsByClassName("searchsec")[0];
 const searchTag = document.getElementsByClassName("search")[0];
 const inputcotainerTag = document.getElementsByClassName("inputcotainer")[0];
 const crossTag =  document.getElementsByClassName("cross")[0];
-
+const loopButton = document.getElementsByClassName("loop")[0];
+const reverseTag = document.getElementsByClassName("reverse")[0];
+const alertTag =document.getElementsByClassName("alert")[0];
 let filterSongs = [];
 let currentPlaying = 0;
 
 const songs = [
-{songtitle : "Ali_Gate (It's your)" , songname : "song/Ali_Gate__It_s_you(360p).mp3" , id :"2" , songsImg : "img/index.jpeg"},
-{songtitle : "ဖိုးပြည့် (ကိုယ်စောင့်နတ်)" , songname : "song/kosoutnat.mp3" , id :"1" , songsImg : "img/ko.jpeg"},
+{songtitle : "Ali_Gate (It's your)" , songname : "song/Ali_Gate__It_s_you(360p).mp3" , id :"1" , songsImg : "img/index.jpeg"},
+{songtitle : "ဖိုးပြည့် (ကိုယ်စောင့်နတ်)" , songname : "song/kosoutnat.mp3" , id :"2" , songsImg : "img/ko.jpeg"},
 {songtitle : "Elvis_Presley (Can't help falling in love)" , songname : "song/Can't_Help_Falling_in_Love_-_Elvis_Presley.mp3" , id :"3" , songsImg : "img/can.jpeg"},
 {songtitle : "Charlie Puth ( We Don't talk anymore )" , songname : "song/Charlie_Puth_-_We_Don't_Talk_Anymore_(feat._Selena_Gomez)_[Official_Video](1080p).mp3", id :"4", songsImg : "img/images.jpeg"},
-{songtitle : "Halsey ( Halsey Without Me)" , songname : "song/Halsey_-_Without_Me_(Lyrics)(720p).mp3", id :"19", songsImg : "img/withoutme.jpeg"},
-{songtitle : "Gotye_feat._Kimbra ( Somebody that i used to know)" , songname : "song/Gotye_feat._Kimbra_1988_|_Somebody_That_I_Used_To_Know_music_video(720p).mp3", id :"5", songsImg : "img/somebody.jpeg"},
-{songtitle : "Fools_Garden ( Lemon Tree)" , songname : "song/Lemon_Tree_-_Fools_Garden_(Lyrics).mp3/" , id :"6", songsImg : "img/lemon.jpeg"},
+{songtitle : "Gotye_feat._Kimbra ( Somebody that i used to know)" , songname : "song/Gotye_feat._Kimbra_1988___Somebody_That_I_Used_To_Know_music_video(720p).mp3", id :"5", songsImg : "img/somebody.jpeg"},
+{songtitle : "Fools_Garden ( Lemon Tree)" , songname : "song/Lemon_Tree_-_Fools_Garden_(Lyrics).mp3" , id :"6", songsImg : "img/lemon.jpeg"},
 {songtitle : "Blue Night ( Michael_Learns_To_Rock )" , songname : "song/MLTR_-_Blue_Night_(Lyrics)_(Michael_Learns_To_Rock).mp3" , id :"7", songsImg : "img/blue.jpeg"},
 {songtitle : "One Direction (  Night Changes )" , songname : "song/One_Direction_-_Night_Changes_(Lyrics)(1080p).mp3" , id :"8", songsImg : "img/night.jpeg"},
-{songtitle : "Charlie Puth ( Call Away )" , songname : "song/Onecallaway.mp3" , id :"8", songsImg : "img/call.jpeg"},
-{songtitle : "Passenger (Let's Her Go )" , songname : "song/Passenger_-_Let_Her_Go.mp3", id :"9", songsImg : "img/lether.jpeg"},
-{songtitle : "Pink_Sweat$ (At My Worst$)" , songname : "song/Pink_Sweat$_-_At_My_Worst.mp3" , id :"10", songsImg : "img/wrost.jpeg"},
-{songtitle : "PUBLIC ( Make You Mine )" , songname : "song/PUBLIC_-_Make_You_Mine.mp3" , id :"11", songsImg : "img/make.jpeg"},
-{songtitle : "Ruth_B  (Dandelions)" , songname : "song/Ruth_B._-_Dandelions.mp3", id :"12", songsImg : "img/dandi.jpeg"},
-{songtitle : "Austin_Mahone (Send it)" , songname : "song/Send_It_(Lyric)_-_Austin_Mahone.mp3", id :"13", songsImg : "img/send.jpeg"},
-{songtitle : "Chainsmokers (Closer)" , songname : "song/The_Chainsmokers_-_Closer.mp3", id :"14", songsImg : "img/closer.jpeg"},
+{songtitle : "Charlie Puth ( Call Away )" , songname : "song/Onecallaway.mp3" , id :"9", songsImg : "img/call.jpeg"},
+{songtitle : "Passenger (Let's Her Go )" , songname : "song/Passenger_-_Let_Her_Go.mp3", id :"10", songsImg : "img/lether.jpeg"},
+{songtitle : "Pink_Sweat$ (At My Worst$)" , songname : "song/Pink_Sweat$_-_At_My_Worst.mp3" , id :"11", songsImg : "img/wrost.jpeg"},
+{songtitle : "PUBLIC ( Make You Mine )" , songname : "song/PUBLIC_-_Make_You_Mine.mp3" , id :"12", songsImg : "img/make.jpeg"},
+{songtitle : "Ruth_B  (Dandelions)" , songname : "song/Ruth_B._-_Dandelions.mp3", id :"13", songsImg : "img/dandi.jpeg"},
+{songtitle : "Austin_Mahone (Send it)" , songname : "song/Send_It_(Lyric)_-_Austin_Mahone.mp3", id :"14", songsImg : "img/send.jpeg"},
+{songtitle : "Chainsmokers (Closer)" , songname : "song/The_Chainsmokers_-_Closer.mp3", id :"15", songsImg : "img/closer.jpeg"},
 {songtitle : "Chainsmokers (Rose)" , songname : "song/The_Chainsmokers_-_Roses.mp3" , id :"16", songsImg : "img/rose.jpeg"},
 {songtitle : "Falling (Trevor_Daniel)" , songname : "song/Trevor_Daniel_-_Falling.mp3" , id :"17", songsImg : "img/falling.jpeg"},
 {songtitle : "Angel Baby (Troye_Sivan)" , songname : "song/Troye_Sivan_-_Angel_Baby.mp3", id :"18" , songsImg : "img/angel.jpeg"},
@@ -52,14 +53,15 @@ const songs = [
 {songtitle : "Last_Christmas ( Stefan_Benz )" , songname : "song/Stefan_Benz_-_Last_Christmas__(Wham!_cover)(2K).ogg", id :"30", songsImg : "img/chris.jpeg" },
 {songtitle : "Way_back_home ( SHAUN )" , songname : "song/Way_back_home.mp3", id :"31", songsImg : "img/way.jpeg" },
 {songtitle : "Beautiful_in_white ( Westlife)" , songname : "song/Westlife_-_Beautiful_in_white.mp3", id :"32", songsImg : "img/white.jpeg" },
-{songtitle : "နေဦး ( ထူးအယ်လင်း )" , songname : "song/နေဦး.....ထူးအယ်လင်း].mp3", id :"34", songsImg : "img/nay.jpg" },
-{songtitle : "သံယောဇဉ် ( လေးဖြူ )" , songname : "song/လေးဖြူ_-_သံယောဇဉ်_(Lay_Phyu).mp3", id :"35", songsImg : "img/lay.jpeg" },
-{songtitle : "အချစ်လို့​ခေါ်သလား ( ထူးအယ်လင်း )" , songname : "song/အချစ်လို့​ခေါ်သလား-ထူးအယ်လင်း.mp3", id :"36", songsImg : "img/achit.jpeg" },
-
+{songtitle : "နေဦး ( ထူးအယ်လင်း )" , songname : "song/နေဦး.....ထူးအယ်လင်း].mp3", id :"33", songsImg : "img/nay.jpg" },
+{songtitle : "သံယောဇဉ် ( လေးဖြူ )" , songname : "song/လေးဖြူ_-_သံယောဇဉ်_(Lay_Phyu).mp3", id :"34", songsImg : "img/lay.jpeg" },
+{songtitle : "အချစ်လို့​ခေါ်သလား ( ထူးအယ်လင်း )" , songname : "song/အချစ်လို့​ခေါ်သလား-ထူးအယ်လင်း.mp3", id :"35", songsImg : "img/achit.jpeg" },
+{songtitle : "Halsey ( Halsey Without Me)" , songname : "song/Halsey_-_Without_Me_(Lyrics)(720p).mp3", id :"36", songsImg : "img/withoutme.jpeg"},
 ]
 
 inputTag.addEventListener("keyup" , (event) => {
          console.log(event.key)
+      
         addcontainerTag.innerHTML = "";
         let inputValue = event.target.value.toLowerCase();
         if(inputValue === ""){
@@ -109,6 +111,9 @@ inputTag.addEventListener("keyup" , (event) => {
 
 let durationText;
 durationtextChange = "00:00";
+
+
+
 audiioTag.addEventListener("loadeddata" , () => {
     duration =  audiioTag.duration;
     durationText = Math.floor(duration);
@@ -118,8 +123,8 @@ audiioTag.addEventListener("loadeddata" , () => {
 });
 
 const updateProgressive = (currentTime) => {
-    const currentUpdateProgress2 = (250/durationText) * currentTime;
-   const currentUpdateProgress = (400/durationText) * currentTime;
+    const currentUpdateProgress2 = (300/durationText) * currentTime;
+   const currentUpdateProgress = (500/durationText) * currentTime;
    progressivebarTag.style.width =  currentUpdateProgress + "px";
    progressivebarTag.style.width =  currentUpdateProgress2 + "px";
 }
@@ -154,9 +159,9 @@ const changeButton = () => {
 }
 
 playbuttonTag.addEventListener("click" , () => {
-     if(songs[0]){
-          changeImg();
-     }
+     // if(songs[0]){
+     //      changeImg();
+     // }
      if(inputValue = ""){
           return;
      }
@@ -164,6 +169,7 @@ playbuttonTag.addEventListener("click" , () => {
      isPlaying = true;
      if(currentTime === 0){
           changeSongs();
+          changeImg();
      }else{
           audiioTag.play();
           changeButton();
@@ -226,7 +232,7 @@ const changeSongs = () => {
 }
 
 
-for (let i = 0; i < songs.length ; i++) {
+for (let  i = 0; i < songs.length ; i++) {
     const songsTitleDiv = document.createElement("div");
     songsTitleDiv.classList.add("songstitlediv");
     
@@ -252,6 +258,7 @@ for (let i = 0; i < songs.length ; i++) {
                audiioTag.play();
                isPlaying = true;
                changeButton();
+               currentPlaying = i;
                songscontainerTag.style.left = `-${songscontainerTag.offsetWidth}px`;
     })
      songscontainerTag.append(songsTitleDiv);
@@ -277,6 +284,7 @@ menuiconsTag.addEventListener("click" , () => {
 inputcotainerTag.style.top = `-${inputcotainerTag.offsetHeight}px`;
 
 searchsecTag.addEventListener("click" , () => {
+   //  alert("You can only search songs from menu")
      songscontainerTag.style.left = `-${songscontainerTag.offsetWidth}px`;
       if(inputcotainerTag.classList.contains("appearinput")){ 
           inputcotainerTag.classList.remove("appearinput");    
@@ -292,3 +300,42 @@ searchsecTag.addEventListener("click" , () => {
      inputcotainerTag.classList.add("newcss")
      inputcotainerTag.classList.remove("appearinput"); 
   });
+  let lop =false;
+  loopButton.addEventListener("click" , () => {
+
+     if(audiioTag.loop === true){
+          return;
+     }
+     if(loopButton.classList.contains("lop")){
+          loopButton.classList.remove("lop");
+          loopButton.style.color = "white";
+          lop = false;
+     }else{   
+          loopButton.classList.add("lop")
+          lop = true;
+          loopButton.style.color = " lightseagreen";
+          audiioTag.onended = () => {
+               console.log("this songs is end")    
+                currentPlaying += 1 ;
+                changeSongs();
+                changeImg();     
+            
+          }    
+     }
+  });
+  reverseTag.addEventListener("click" , () => {
+     if(lop===true){
+          return;
+     }
+      if(reverseTag.classList.contains("rev")){
+          audiioTag.loop = false;
+          reverseTag.style.color = " white";
+          reverseTag.classList.remove("rev")
+      }else{
+          reverseTag.classList.add("rev")
+          audiioTag.loop = true;
+          reverseTag.style.color = " lightseagreen";
+
+      }
+      
+  })

@@ -24,6 +24,9 @@ body{
      padding: 5px;
      overflow-y: auto;
  }
+ .badge{
+    font-size: 12px;
+}
  .input{
       border-bottom-left-radius: 0px;
       border-bottom-right-radius: 0px;
@@ -97,12 +100,15 @@ body{
      margin-top: 120px;
  }
  .musicIcons{
+    margin-top: 50px;
      display: flex;
      flex-direction: row;
      justify-content: space-between;
      align-items: center;
      margin-top: 30px;
-     width: 25%;
+     width: 40%;
+     margin: 0 auto;
+
  }
  .icons{
  
@@ -123,10 +129,11 @@ body{
  }
  
  .progressive{
-     width: 400px;
+     width: 500px;
      height: 5px;
      background-color: darkgray;
-     
+     margin-bottom: 10px;
+     margin-bottom: 50px;
  }
  .progressivebar{
      width: 0px;
@@ -306,8 +313,9 @@ body{
          margin-top: 30px;
      }
      .progressive{
-         width: 250px;
+         width: 300px;
          height: 5px;
+         margin-bottom: 5px;
      }
      .playbutton , .pauseButton{
          font-size: 45px;
@@ -376,5 +384,8 @@ body{
     }
     .newcss{
         transition: all 1s ease-in-out;
+    }
+    .badge{
+        font-size: 7px;
     }
     }
