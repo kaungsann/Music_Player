@@ -16,7 +16,9 @@ const inputcotainerTag = document.getElementsByClassName("inputcotainer")[0];
 const crossTag =  document.getElementsByClassName("cross")[0];
 const loopButton = document.getElementsByClassName("loop")[0];
 const reverseTag = document.getElementsByClassName("reverse")[0];
-const alertTag =document.getElementsByClassName("alert")[0];
+
+const alertTag = document.getElementsByClassName("alertbox")[0];
+const agreeTag =document.getElementsByClassName("agree")[0];
 let filterSongs = [];
 let currentPlaying = 0;
 
@@ -59,8 +61,28 @@ const songs = [
 {songtitle : "Halsey ( Halsey Without Me)" , songname : "song/Halsey_-_Without_Me_(Lyrics)(720p).mp3", id :"36", songsImg : "img/withoutme.jpeg"},
 ]
 
+const appearAlert =  () => {
+     alertTag.innerHTML ="";
+      const alert = document.createElement("div");
+      alert.append(" You can only search songs from the menu");
+      alert.classList.add("alert");
+ 
+      const agreeTag = document.createElement("button");
+      agreeTag.classList.add("agree");
+      agreeTag.append("Agree");
+      agreeTag.addEventListener("click" ,() => {
+         window.localStorage.setItem("agree" , "yes");
+         alertTag.style.opacity = 0;
+     })
+ 
+      alertTag.append( alert , agreeTag);
+ }
+
 inputTag.addEventListener("keyup" , (event) => {
-         console.log(event.key)
+ 
+         setTimeout(() => {
+          appearAlert();
+         } ,100)
       
         addcontainerTag.innerHTML = "";
         let inputValue = event.target.value.toLowerCase();
@@ -285,6 +307,7 @@ inputcotainerTag.style.top = `-${inputcotainerTag.offsetHeight}px`;
 
 searchsecTag.addEventListener("click" , () => {
    //  alert("You can only search songs from menu")
+     
      songscontainerTag.style.left = `-${songscontainerTag.offsetWidth}px`;
       if(inputcotainerTag.classList.contains("appearinput")){ 
           inputcotainerTag.classList.remove("appearinput");    
@@ -301,6 +324,7 @@ searchsecTag.addEventListener("click" , () => {
      inputcotainerTag.classList.remove("appearinput"); 
   });
   let lop =false;
+ 
   loopButton.addEventListener("click" , () => {
 
      if(audiioTag.loop === true){
@@ -314,11 +338,20 @@ searchsecTag.addEventListener("click" , () => {
           loopButton.classList.add("lop")
           lop = true;
           loopButton.style.color = " lightseagreen";
+
+
           audiioTag.onended = () => {
-               console.log("this songs is end")    
+               console.log("this songs is end");   
+               if(currentPlaying  === songs.length-1 ){
+                    currentPlaying = 0;
+                    changeSongs();
+                    changeImg();  
+                    return;
+               }
                 currentPlaying += 1 ;
+
                 changeSongs();
-                changeImg();     
+                changeImg();  
             
           }    
      }
@@ -338,4 +371,13 @@ searchsecTag.addEventListener("click" , () => {
 
       }
       
+  })
+
+
+
+ window.addEventListener("load" ,() => {
+     const getValue = window.localStorage.getItem("agree")
+      if(getValue === "yes"){
+          alertTag.remove();
+      }
   })

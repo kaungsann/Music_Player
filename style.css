@@ -13,6 +13,7 @@ body{
  .searchsec{
      display: none;
  }
+
  .inputcotainer{
      position: absolute;
      right: 0;
@@ -387,5 +388,45 @@ body{
     }
     .badge{
         font-size: 7px;
+    }
+    .alertbox{
+        /* opacity: 0; */
+      
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        /* padding: 10px; */
+        background-color: #06283D;
+        width: 90%;
+        margin: 220px auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 13px;
+        user-select: none;
+        cursor: pointer;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        z-index: 4;
+        transition: opacity 0.4s ease-in-out;
+    }
+    .alert{
+        margin-top: 10px;
+        padding:5px;     
+    }
+    .agree{
+        padding: 3px 35px;
+        background-color: darkslategray;
+        border: none;
+        color: white;
+        margin-left: 180px;
+        border-radius: 30px;
+        cursor: pointer;
+       margin-bottom: 15px;
+     
+    }
+    .agree:hover{
+          opacity: 0.4;
     }
     }
